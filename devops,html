@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Arrow Heart Animation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        position: relative;
+        width: 500px;
+        height: 200px;
+    }
+
+    /* Arrow */
+    .arrow {
+        position: absolute;
+        left: 0;
+        top: 90px;
+        font-size: 40px;
+        animation: shoot 3s forwards;
+    }
+
+    @keyframes shoot {
+        0% { left: 0; }
+        70% { left: 220px; }
+        100% { left: 220px; }
+    }
+
+    /* Heart Outline */
+    .heart {
+        position: absolute;
+        left: 250px;
+        top: 70px;
+        width: 100px;
+        height: 90px;
+        transform: rotate(-45deg);
+        animation: fillHeart 3s forwards;
+        animation-delay: 2s;
+    }
+
+    .heart:before,
+    .heart:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 90px;
+        background: white;
+        border-radius: 50%;
+    }
+
+    .heart:before {
+        top: -50px;
+        left: 0;
+    }
+
+    .heart:after {
+        left: 50px;
+        top: 0;
+    }
+
+    /* Fill Animation */
+    @keyframes fillHeart {
+        0% { background: white; }
+        100% { background: red; }
+    }
+
+    /* Make heart red after hit */
+    .heart {
+        background: white;
+    }
+
+    .heart:before,
+    .heart:after {
+        animation: fillCircle 1s forwards;
+        animation-delay: 2s;
+    }
+
+    @keyframes fillCircle {
+        0% { background: white; }
+        100% { background: red; }
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="arrow">🏹</div>
+    <div class="heart"></div>
+</div>
+
+</body>
+</html>
